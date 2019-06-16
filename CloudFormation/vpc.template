@@ -8,22 +8,25 @@ Metadata:
         height: 310
       position:
         x: 710
-        'y': 290
+        'y': 270
       z: 0
       embeds:
+        - 7835dc98-0cb4-4023-869c-ca4c8f29bbaf
         - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
     154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a:
       size:
         width: 330
         height: 220
       position:
-        x: 830
-        'y': 350
+        x: 750
+        'y': 330
       z: 1
       parent: 690c4562-fbdd-4a4b-8162-d1bd2654e512
       embeds:
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
       iscontainedinside:
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
@@ -53,8 +56,8 @@ Metadata:
         width: 180
         height: 140
       position:
-        x: 860
-        'y': 410
+        x: 780
+        'y': 390
       z: 2
       parent: 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
       embeds:
@@ -94,14 +97,16 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: 890
-        'y': 470
+        x: 810
+        'y': 450
       z: 3
       parent: ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
       embeds: []
       isassociatedwith:
         - a6345fda-2368-4d32-9ca6-ad7d0ef0c9e1
       iscontainedinside:
+        - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
+        - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
@@ -119,17 +124,52 @@ Metadata:
       target:
         id: a6345fda-2368-4d32-9ca6-ad7d0ef0c9e1
       z: 5
+    7835dc98-0cb4-4023-869c-ca4c8f29bbaf:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1140
+        'y': 310
+      z: 1
+      parent: 690c4562-fbdd-4a4b-8162-d1bd2654e512
+      embeds: []
+      iscontainedinside:
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+    5428c68c-4898-4d0a-b126-4b1e1eaad385:
+      source:
+        id: 7835dc98-0cb4-4023-869c-ca4c8f29bbaf
+        selector: 'g:nth-child(1) g:nth-child(4) g:nth-child(5) circle:nth-child(1)     '
+        port: 'AWS::ContainedInsideLink-AWS::EC2::VPC-VpcId'
+      target:
+        id: 690c4562-fbdd-4a4b-8162-d1bd2654e512
+      z: 5
 Resources:
-  PublicSubnet01:
-    Type: 'AWS::EC2::Subnet'
+  EC2VPCG14V7N:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
-      VpcId: !Ref VPC01
-      CidrBlock: 10.0.0.0/24
-      AvailabilityZone: us-east-1a
+      VpcId: !Ref vpc01
+      InternetGatewayId: !Ref igw01
     Metadata:
       'AWS::CloudFormation::Designer':
-        id: 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
-  VPC01:
+        id: 0b1b0e34-0a73-4437-a610-83469462ac1d
+  EC2SRTA1X1KS:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      RouteTableId: !Ref routeTable01
+      SubnetId: !Ref publicSubnet01
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 24b23f83-6b26-47be-9b68-4a0f7202d1c0
+  igw01:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: a6345fda-2368-4d32-9ca6-ad7d0ef0c9e1
+  vpc01:
     Type: 'AWS::EC2::VPC'
     Properties:
       CidrBlock: 10.0.0.0/16
@@ -138,43 +178,47 @@ Resources:
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 690c4562-fbdd-4a4b-8162-d1bd2654e512
-  EC2VPCG14V7N:
-    Type: 'AWS::EC2::VPCGatewayAttachment'
+  publicSubnet01:
+    Type: 'AWS::EC2::Subnet'
     Properties:
-      VpcId: !Ref VPC01
-      InternetGatewayId: !Ref IGW01
+      VpcId: !Ref vpc01
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: us-east-1a
     Metadata:
       'AWS::CloudFormation::Designer':
-        id: 0b1b0e34-0a73-4437-a610-83469462ac1d
-  IGW01:
-    Type: 'AWS::EC2::InternetGateway'
-    Properties: {}
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: a6345fda-2368-4d32-9ca6-ad7d0ef0c9e1
-  RouteTable01:
+        id: 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
+  routeTable01:
     Type: 'AWS::EC2::RouteTable'
     Properties:
-      VpcId: !Ref VPC01
+      VpcId: !Ref vpc01
     Metadata:
       'AWS::CloudFormation::Designer':
         id: ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
-  EC2SRTA1X1KS:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref RouteTable01
-      SubnetId: !Ref PublicSubnet01
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 24b23f83-6b26-47be-9b68-4a0f7202d1c0
-  PublicRoute01:
+  publicRoute01:
     Type: 'AWS::EC2::Route'
     Properties:
-      RouteTableId: !Ref RouteTable01
-      GatewayId: !Ref IGW01
+      RouteTableId: !Ref routeTable01
       DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref igw01
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 26de9ad6-bd31-4471-8fe7-a6e53ff12d2c
     DependsOn:
       - EC2VPCG14V7N
+  vpcSg01:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref vpc01
+      GroupDescription: Allow access from HTTP and SSH traffic
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 7835dc98-0cb4-4023-869c-ca4c8f29bbaf
