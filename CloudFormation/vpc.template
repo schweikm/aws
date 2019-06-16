@@ -1,0 +1,49 @@
+# vi:syntax=yaml
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    690c4562-fbdd-4a4b-8162-d1bd2654e512:
+      size:
+        width: 540
+        height: 310
+      position:
+        x: 710
+        'y': 290
+      z: 0
+      embeds:
+        - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
+    154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 770
+        'y': 350
+      z: 1
+      parent: 690c4562-fbdd-4a4b-8162-d1bd2654e512
+      embeds: []
+      iscontainedinside:
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+Resources:
+  PublicSubnet01:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref VPC01
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: us-east-1a
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
+  VPC01:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 690c4562-fbdd-4a4b-8162-d1bd2654e512
