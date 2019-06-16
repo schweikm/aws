@@ -41,6 +41,9 @@ Metadata:
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
     a6345fda-2368-4d32-9ca6-ad7d0ef0c9e1:
       size:
         width: 60
@@ -119,6 +122,9 @@ Metadata:
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
         - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
+        - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
+        - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
+        - ff7bc149-2a30-41d9-be19-4e3e41c1fa4f
       dependson:
         - 0b1b0e34-0a73-4437-a610-83469462ac1d
     8a8604b5-76dc-4a31-9a2f-2e3b267de2c8:
@@ -151,6 +157,9 @@ Metadata:
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
         - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
+        - 690c4562-fbdd-4a4b-8162-d1bd2654e512
     5428c68c-4898-4d0a-b126-4b1e1eaad385:
       source:
         id: 7835dc98-0cb4-4023-869c-ca4c8f29bbaf
@@ -170,6 +179,9 @@ Metadata:
       parent: 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
       embeds: []
       iscontainedinside:
+        - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
+        - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
+        - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
         - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
         - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
         - 154bfcfb-0f8e-4a5c-bf3f-de14b9b97d1a
@@ -258,10 +270,10 @@ Resources:
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 7835dc98-0cb4-4023-869c-ca4c8f29bbaf
-  ec201:
+  ec2WordPress01:
     Type: 'AWS::EC2::Instance'
     Properties:
-      ImageId: ami-043fbed28a389c721
+      ImageId: ami-00786088de9f85354
       InstanceType: t2.micro
       NetworkInterfaces:
         - GroupSet:
